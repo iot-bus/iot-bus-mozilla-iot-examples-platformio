@@ -8,8 +8,8 @@
  */
 
 //TODO: Hardcode your wifi credentials here (and keep it private)
-const char* ssid = "NETGEAR96";
-const char* password = "phoebe1984";
+const char* ssid = "........";
+const char* password = "........";
 
 const int relayPin = 17;  // IoT-Bus relay 16 or 17 supported. If using touchscreen then relay must be on GPIO17 and PENIRQ not used. TFT OK either way.
 

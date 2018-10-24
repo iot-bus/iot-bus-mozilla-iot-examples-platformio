@@ -11,10 +11,10 @@
  */
 
 //TODO: Hardcode your wifi credentials here (and keep it private)
-const char* ssid = "NETGEAR96";
-const char* password = "phoebe1984";
+const char* ssid = "........";
+const char* password = "........";
 
-const int relayPin = 16;  // IoT-Bus relay
+const int relayPin = 17;  // IoT-Bus relay
 
 WebThingAdapter* adapter;
 

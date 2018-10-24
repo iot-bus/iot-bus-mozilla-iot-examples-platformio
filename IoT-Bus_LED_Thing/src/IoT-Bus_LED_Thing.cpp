@@ -14,8 +14,8 @@
 #include "WebThingAdapter.h"
 
 //TODO: Hardcode your wifi credentials here (and keep it private)
-const char* ssid = "NETGEAR96";
-const char* password = "phoebe1984";
+const char* ssid = ".........";
+const char* password = ".........";
 
 #if defined(LED_BUILTIN)
 const int ledPin = LED_BUILTIN;
