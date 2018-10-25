@@ -12,7 +12,7 @@ In each case you will have to enter your ssid and password within the main cpp f
 
 These examples are structured for Platformio but can be run using the Arduino IDE by renaming the source file as .ino and saving it in a folder of the same name. If you run under Arduino you'll have to ensure each library is installed in the "Arduino/Libraries" folder. You can find the library dependencies for each in the platformio.ini file.
 
-![Iot-Bus-mozilla-iot-example](example.jpg)
+![Iot-Bus-mozilla-iot-example](RelayOn.jpg)
 
 ## IoT-Bus-LED_Thing
 
