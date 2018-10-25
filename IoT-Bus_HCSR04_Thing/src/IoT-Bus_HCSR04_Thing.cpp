@@ -21,7 +21,7 @@ WebThingAdapter* adapter;
 
 const char* textDisplayTypes[] = {"TextDisplay", nullptr};
 ThingDevice textDisplay("textDisplay", "Text display", textDisplayTypes);
-ThingProperty text("text", "", STRING, nullptr);
+ThingProperty text("text", "", STRING, nullptr, "Distance", "", "false");
 
 /*
  *  WiFi ssid and password
@@ -143,7 +143,7 @@ void loop() {
   }
   else{
     current = (long) inches;
-    current += " in"; 
+//    current += " in"; 
   }
   if (current != last){
     displayString(last, ILI9341_BLACK);    // clear old text by writing it black

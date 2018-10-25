@@ -1,18 +1,10 @@
+#include <arduino.h>
 /* 
  *  Graphics  
  */
-#include <Adafruit_GFX.h>
-#include "Adafruit_ILI9341.h" // Hardware-specific library
+#include <TFT_eSPI.h>
 
-#define TFT_DC 27    // Data/command pin for display
-
-#define TFT_CS 5     // CS for display
-#define TFT_MISO 19  // VSPI MISO
-#define TFT_MOSI 23  // VSPI MOSI
-#define TFT_CLK 18   // VSPI CLOCK
-#define TFT_RST 0    // no RESET pin
-
-Adafruit_ILI9341 display = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);
+TFT_eSPI display = TFT_eSPI();
 
 /* 
  *  MOZ IoT 
@@ -35,8 +27,8 @@ ThingPropertyValue reading;
 /*
  *  WiFi ssid and password
  */
-const char* ssid = "NETGEAR96";
-const char* password = "phoebe1984";
+const char* ssid = "........";
+const char* password = ".........";
 
 /*
  *  DHT11
