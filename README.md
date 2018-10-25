@@ -47,6 +47,6 @@ Connect an HC-SR04 Ultrasonic Distance Sensor and run:
 
 This example is a simple integer calculator that creates a Thing that exposes the two numbers, the last function and the result. It requires the IoT-Bus display.
 
-## IoT-Bus_Relay_Touch_Display_Touch
+## IoT-Bus_Relay_Thing and IoT-Bus_Relay_Thing_Display_Touch
 
-This example uses an IoT-Bus relay board together with an IoT-Bus Io processor and IoT-Bus Display to expose the relay status and to enable the user to change through your mozilla-iot domain. The current status of the relay is also shown on the display. The touchscreen is enabled so it can be switched on and off locally. That status will be reflected by mozilla-iot.
+These examples uses an IoT-Bus relay board together with an IoT-Bus Io processor to expose the relay status and to enable the user to change through your mozilla-iot domain. In the second example the current status of the relay is also shown on the display. The touchscreen is enabled so it can be switched on and off locally. The status will be reflected by mozilla-iot.
