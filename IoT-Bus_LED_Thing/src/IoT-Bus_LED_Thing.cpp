@@ -20,14 +20,14 @@ const char* password = ".........";
 #if defined(LED_BUILTIN)
 const int ledPin = LED_BUILTIN;
 #else
-const int ledPin = 16;  // manually configure LED pin
+const int ledPin = 5;  // manually configure LED pin
 #endif
 
 WebThingAdapter* adapter;
 
-const char* relayTypes[] = {"OnOffSwitch", "Relay", nullptr};
-ThingDevice relay("relay", "Relay", relayTypes);
-ThingProperty relayOn("on", "", BOOLEAN, "OnOffProperty");
+const char* ledTypes[] = {"OnOffSwitch", "led", nullptr};
+ThingDevice led("LED", "LED", ledTypes);
+ThingProperty ledOn("on", "", BOOLEAN, "OnOffProperty");
 
 bool lastOn = false;
 
@@ -62,22 +62,22 @@ void setup(void){
   Serial.println(WiFi.localIP());
   adapter = new WebThingAdapter("w25", WiFi.localIP());
 
-  relay.addProperty(&relayOn);
-  adapter->addDevice(&relay);
+  led.addProperty(&ledOn);
+  adapter->addDevice(&led);
   adapter->begin();
   Serial.println("HTTP server started");
   Serial.print("http://");
   Serial.print(WiFi.localIP());
   Serial.print("/things/");
-  Serial.println(relay.id);
+  Serial.println(led.id);
 }
 
 void loop(void){
   adapter->update();
-  bool on = relayOn.getValue().boolean;
+  bool on = ledOn.getValue().boolean;
   digitalWrite(ledPin, on ? HIGH : LOW); // active high led
   if (on != lastOn) {
-    Serial.print(relay.id);
+    Serial.print(led.id);
     Serial.print(": ");
     Serial.println(on);
   }
