@@ -1,6 +1,6 @@
 # IoT-Bus mozilla IoT Examples
 
-These examples are designed to run on IoT-Bus boards by oddWires. In each case, they demonstrate how to create a mozilla-iot "thing" and expose it through the mozilla-iot gateway running on a raspberry pi one the same Wi-Fi network. We will refer to a mozilla-iot thing as a Thing in this document. To setup a gateway see here: 
+These examples are designed to run on IoT-Bus boards by oddWires. In each case, they demonstrate how to create a mozilla-iot "thing" and expose it through the mozilla-iot gateway running on a raspberry pi on the same Wi-Fi network. We will refer to a mozilla-iot thing as a Thing in this document. To setup a gateway see here: 
 
 https://hacks.mozilla.org/2018/02/how-to-build-your-own-private-smart-home-with-a-raspberry-pi-and-mozillas-things-gateway/
 
