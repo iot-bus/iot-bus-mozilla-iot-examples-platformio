@@ -28,7 +28,7 @@ ThingPropertyValue reading;
  *  WiFi ssid and password
  */
 const char* ssid = "........";
-const char* password = ".........";
+const char* password = "........";
 
 /*
  *  DHT11
@@ -108,8 +108,8 @@ bool getTemperature() {
  *  displayString helper function to draw text on 
  *  the TFT display
  */
-const int textHeight = 8;
-const int textWidth = 6;
+const int textHeight = 12;
+const int textWidth = 12;
 const int width = 320;
 const int height = 240;
 
@@ -119,13 +119,16 @@ void displayString(const String& str, int color) {
   int len = str.length()+1;
   int strWidth = len * textWidth;
   int strHeight = textHeight;
+  Serial.println(strWidth);
   int scale = width / strWidth;
-  if (strHeight > strWidth / 2) {
-    scale = height / strHeight;
-  }
+  Serial.println(scale);
+  if (scale < 1) 
+    scale = 1;
+  
   int x = width / 2 - strWidth * scale / 2;
-  int y = height / 2 - strHeight * scale / 2;
+  int y = height / 2 + strHeight * scale / 2;
 
+  display.setFreeFont(&FreeSans18pt7b);
   display.setRotation(1);
   display.setTextColor(color);
   display.setTextSize(scale);
@@ -167,7 +170,6 @@ void setup()
   // Initialize MOZ IoT thing
   adapter = new WebThingAdapter("multilevelsensor", WiFi.localIP());
   dht11.addProperty(&temperature);
-  //adapter->addDevice(&thermometer);
   dht11.addProperty(&humidity);
   adapter->addDevice(&dht11);
   adapter->begin();
@@ -175,7 +177,7 @@ void setup()
 
 void loop() {
   getTemperature();
-  current = dht.toFahrenheit(newValues.temperature);
+  current = String(dht.toFahrenheit(newValues.temperature)) + "°F   " + String(newValues.humidity) + "%";
   if (current != last){
     displayString(last, ILI9341_BLACK);    // clear old text by writing it black
     displayString(current, ILI9341_WHITE); // write the new value
