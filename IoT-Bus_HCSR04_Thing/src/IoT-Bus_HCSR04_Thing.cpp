@@ -19,14 +19,15 @@ TFT_eSPI display = TFT_eSPI();
 
 WebThingAdapter* adapter;
 
-const char* textDisplayTypes[] = {"TextDisplay", nullptr};
-ThingDevice textDisplay("textDisplay", "Text display", textDisplayTypes);
-ThingProperty text("text", "", STRING, nullptr, "Distance", "", "false");
+const char* sensorTypes[] = {"LevelSensor", nullptr};
+ThingDevice hcsr04("HC-SR04", "HC-SR04", sensorTypes);
+ThingProperty distance("distance", "Distance in cm", NUMBER, "LevelProperty", "Distance", "in", "false");
+ThingPropertyValue measurement;
 
 /*
  *  WiFi ssid and password
  */
-const char* ssid = "........";
+const char* ssid = ".........";
 const char* password = "........";
 
 /*
@@ -40,8 +41,8 @@ long duration, cm, inches;
  *  displayString helper function to draw text on 
  *  the TFT display
  */
-const int textHeight = 8;
-const int textWidth = 6;
+const int textHeight = 18;
+const int textWidth = 18;
 const int width = 320;
 const int height = 240;
 
@@ -52,12 +53,11 @@ void displayString(const String& str, int color) {
   int strWidth = len * textWidth;
   int strHeight = textHeight;
   int scale = width / strWidth;
-  if (strHeight > strWidth / 2) {
-    scale = height / strHeight;
-  }
-  int x = width / 2 - strWidth * scale / 2;
-  int y = height / 2 - strHeight * scale / 2;
 
+  int x = width / 2 - (strWidth * scale / 2);
+  int y = height / 2 + (strHeight * scale / 2);
+
+  display.setFreeFont(&FreeSans18pt7b);
   display.setRotation(1);
   display.setTextColor(color);
   display.setTextSize(scale);
@@ -105,11 +105,10 @@ void setup() {
 
   // Initialize MOZ IoT thing
   adapter = new WebThingAdapter("textdisplayer", WiFi.localIP());
-  ThingPropertyValue value;
-  value.string = &current;
-  text.setValue(value);
-  textDisplay.addProperty(&text);
-  adapter->addDevice(&textDisplay);
+  measurement.number = -1;
+  distance.setValue(measurement);
+  hcsr04.addProperty(&distance);
+  adapter->addDevice(&hcsr04);
   adapter->begin();
 }
  
@@ -142,12 +141,13 @@ void loop() {
     current = "Out of range";
   }
   else{
-    current = (long) inches;
-//    current += " in"; 
+    current = String(inches) + " in"; 
   }
   if (current != last){
     displayString(last, ILI9341_BLACK);    // clear old text by writing it black
     displayString(current, ILI9341_WHITE); // write the new value
+    measurement.number = inches;
+    distance.setValue(measurement);
     adapter->update();                     // update the MOZ IoT thing
     last = current;                        // remember the last write to be able to clear it
     delay(500);                            // vary to suit
