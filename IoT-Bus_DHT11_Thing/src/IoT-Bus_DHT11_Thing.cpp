@@ -16,7 +16,7 @@ WebThingAdapter* adapter;
 
 const char* sensorTypes[] = {"MultiLevelSensor", nullptr};
 
-ThingDevice dht11("thermometer", "Thermometer & Hygrometer", sensorTypes);
+ThingDevice dht11("thermometer", "DHT11 Thermometer & Hygrometer", sensorTypes);
 // ThingProperty variable_name( id, description, type, @type, label, unit, writable );  // writable not supported until 0.6
 
 ThingProperty temperature("temperature", "The temperature from x to y", NUMBER, "LevelProperty", "Temperature", "F", false);
