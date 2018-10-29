@@ -34,7 +34,7 @@ Connect a DHT11 Temperature Sensor and run:
 
 ## IoT-Bus_HC-SR04_Thing
 
-This example creates a Thing that exposes the current distance reading or the HC-SR04 and also displays the distance locally.
+This example creates a Thing that exposes the current distance reading or the HC-SR04 ultransonic distance sensor and also displays the distance locally.
 
 Connect an HC-SR04 Ultrasonic Distance Sensor and run:
 
@@ -42,6 +42,22 @@ Connect an HC-SR04 Ultrasonic Distance Sensor and run:
     ECHO -> GPIO4
     VCC  -> VUSB
     GND  -> GND (VIN is OK if using battery(3.7-42V) but not 3V3 as not high enough)
+
+## IoT-HC-SR501_PIR_Thing
+
+This example creates a Motion Sensor Thing that triggers on movement. It sets the on-board LED on triggering and updates the mozilla-iot interface appropriately.
+
+Connect an HC-SR501 Passive Infrared Sensor or any similar device and run:
+    
+    OUT  -> GPIO4 
+    VCC  -> VUSB (Typically VIN is OK if using battery(3.7-42V) but not 3V3 as not high enough)    
+    GND  -> GND 
+
+## IoT-Touch_Thing
+
+This example creates a Touch Switch Thing that triggers when one of the capacitive touch pins on the ESP32 are touched. It sets the on-board LED on triggering and updates the mozilla-iot interface appropriately.
+
+Connect a wire to GPIO4 and run.   
 
 ## IoT-Bus_Calculator_Thing    
 
