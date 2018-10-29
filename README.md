@@ -63,6 +63,10 @@ Connect a wire to GPIO4 and run.
 
 This example is a simple integer calculator that creates a Thing that exposes the two numbers, the last function and the result. It requires the IoT-Bus display.
 
+## IoT-Bus_Window_Door_Sensor_Thing
+
+This example shows how to use a typical magentic door sensor. Just connect one soide of the contacts to GPIO4 and the other to GND. When the contacts are open the door sensor will show open in the mozilla interface and when they are shut the door will show shut.
+
 ## IoT-Bus_Relay_Thing and IoT-Bus_Relay_Thing_Display_Touch
 
 These examples uses an IoT-Bus relay board together with an IoT-Bus Io processor to expose the relay status and to enable the user to change through your mozilla-iot domain. In the second example the current status of the relay is also shown on the display. The touchscreen is enabled so it can be switched on and off locally. The status will be reflected by mozilla-iot.
