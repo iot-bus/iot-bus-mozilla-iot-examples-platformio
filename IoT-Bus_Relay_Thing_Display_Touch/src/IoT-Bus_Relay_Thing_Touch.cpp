@@ -23,13 +23,6 @@ const int relayPin = 17;  // IoT-Bus relay 16 or 17 supported. If using touchscr
 void drawPlug(bool on);
 bool touched(bool hit);
 
-#define TFT_CS 5     // CS for display
-#define TFT_MISO 19  // VSPI MISO
-#define TFT_MOSI 23  // VSPI MOSI
-#define TFT_CLK 18   // VSPI CLOCK
-#define TFT_DC 27    // Data/command pin for display
-#define TFT_RST 0    // no RESET pin
-
 //Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);//TFT_eSPI display = TFT_eSPI(); // Invoke custom library
 TFT_eSPI tft = TFT_eSPI(); // Invoke custom library
 
@@ -55,7 +48,7 @@ XPT2046_Touchscreen ts(CS_PIN, 255);  // Param 2 - No interrupts
 WebThingAdapter* adapter;
 
 const char* relayTypes[] = {"SmartPlug", nullptr};
-ThingDevice relay("relay", "IoT-Bus Relay", relayTypes);
+ThingDevice relay("Relay", "IoT-Bus Relay", relayTypes);
 ThingProperty relayOn("on", "", BOOLEAN, "OnOffProperty");
 
 // remember last state
