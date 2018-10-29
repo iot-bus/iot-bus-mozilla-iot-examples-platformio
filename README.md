@@ -18,7 +18,7 @@ These examples are structured for Platformio but can be run using the Arduino ID
 
 This example create a Thing that enables the built-in LED on GPIO5 to be set through the mozilla-iot domain.
 
-## IoT-Bus-LED_Thing
+## IoT-Bus-LEDLamp_Thing
 
 This example create a Thing that enables the status and brightness of the built-in LED on GPIO5 to be set through the mozilla-iot domain.
 
