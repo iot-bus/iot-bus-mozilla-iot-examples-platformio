@@ -12,8 +12,14 @@
 #include <WebThingAdapter.h>
 /*______End of Libraries_______*/
 
+/*
+ *  WiFi ssid and password
+ */
+const char* ssid = "........";
+const char* password = "........";
+
 // simple window style class used for the response box and buttons
-enum aligment { LEFT, RIGHT, MIDDLE };
+enum alignment { LEFT, RIGHT, MIDDLE };
 
 class Button{
 public:
@@ -287,12 +293,6 @@ ThingProperty accumulatorProperty("Accumulator", "", NUMBER, nullptr);
 ThingProperty num1Property("Number 1", "", NUMBER, nullptr);
 ThingProperty num2Property(" Number 2", "", NUMBER, nullptr);
 ThingProperty functionProperty("Last Function", "", STRING, nullptr);
-
-/*
- *  WiFi ssid and password
- */
-const char* ssid = "NETGEAR96";
-const char* password = "phoebe1984";
 
 // Create TFT
 TFT_eSPI tft = TFT_eSPI();   

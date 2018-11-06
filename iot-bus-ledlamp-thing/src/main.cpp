@@ -15,8 +15,8 @@
 
 #define MIN(a,b) (((a)<(b))?(a):(b))
 
-const char* ssid = "NETGEAR96";
-const char* password = "phoebe1984";
+const char* ssid = "........";
+const char* password = "........";
 
 #if defined(LED_BUILTIN)
 const int lampPin = LED_BUILTIN;
