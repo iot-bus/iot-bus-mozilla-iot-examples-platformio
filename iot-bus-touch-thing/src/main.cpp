@@ -7,7 +7,7 @@
   This example code is in the public domain.
  */
 
-//TODO: Hardcode your wifi credentials here (and keep it private)
+//TODO: Hardcode your WiFi credentials here (and keep it private)
 const char* ssid = "........";
 const char* password = "........";
 
@@ -18,8 +18,8 @@ int touchPin = 4; // choose the input pin - T0 is the same as GPIO4
 WebThingAdapter* adapter;
 
 const char* sensorTypes[] = {"binarySensor", nullptr};
-ThingDevice touch("Touch", "ESP32 Touch Input", sensorTypes);
-ThingProperty touched("true", "", BOOLEAN, "BooleanProperty");
+ThingDevice touch("Touch", "IoT-Bus Touch Input", sensorTypes);
+ThingProperty touched("Touched", "", BOOLEAN, "BooleanProperty");
 ThingPropertyValue sensorValue;
 
 int threshold = 40;

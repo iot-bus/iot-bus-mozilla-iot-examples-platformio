@@ -13,9 +13,9 @@
 #include "Thing.h"
 #include "WebThingAdapter.h"
 
-//TODO: Hardcode your wifi credentials here (and keep it private)
-const char* ssid = ".........";
-const char* password = ".........";
+//TODO: Hardcode your WiFi credentials here (and keep it private)
+const char* ssid = "........";
+const char* password = "........";
 
 #if defined(LED_BUILTIN)
 const int ledPin = LED_BUILTIN;
@@ -27,7 +27,7 @@ WebThingAdapter* adapter;
 
 const char* ledTypes[] = {"OnOffSwitch", "led", nullptr};
 ThingDevice led("LED", "LED", ledTypes);
-ThingProperty ledOn("on", "", BOOLEAN, "OnOffProperty");
+ThingProperty ledOn("On", "", BOOLEAN, "OnOffProperty");
 
 bool lastOn = false;
 
